@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/charmbracelet/log"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/ssh"
+	"unknwon.dev/x/logx"
 
 	"github.com/pgrok/pgrok/internal/conf"
 	"github.com/pgrok/pgrok/internal/cryptoutil"
@@ -21,7 +21,7 @@ import (
 // canceled or the listener is closed.
 func Start(
 	ctx context.Context,
-	logger *log.Logger,
+	logger *logx.Logger,
 	port int,
 	proxy conf.Proxy,
 	db *database.DB,

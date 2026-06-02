@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/charmbracelet/log"
+	"unknwon.dev/x/logx"
 
 	"github.com/pgrok/pgrok/internal/conf"
 	"github.com/pgrok/pgrok/internal/database"
@@ -13,7 +13,7 @@ import (
 
 func runSSHServer(
 	ctx context.Context,
-	logger *log.Logger,
+	logger *logx.Logger,
 	sshdPort int,
 	proxy conf.Proxy,
 	db *database.DB,
@@ -21,7 +21,7 @@ func runSSHServer(
 ) error {
 	return sshd.Start(
 		ctx,
-		logger.WithPrefix("sshd"),
+		logger,
 		sshdPort,
 		proxy,
 		db,
